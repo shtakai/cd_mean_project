@@ -47,47 +47,13 @@
         })
     }
 
-    factory.getPolls = function(callback){
-      $http.get('/polls')
-        .then(function(res){
-          callback(res.data)
-        }).catch(function(err){
-        })
-    }
-
-    factory.getPoll = function(id, callback){
-      $http.get(`/polls/${id}`)
-        .then(function(res){
-          callback(res.data)
-        }).catch(function(err){
-        })
-    }
-
-    factory.vote = function(id, callback){
-      $http.get(`/options/${id}/vote`)
-        .then(function(res){
-          callback(res.data)
-        }).catch(function(err){
-        })
-    }
-
-    factory.createPoll = function(poll, callback){
-       $http.post('/polls', poll)
-         .then(function(res){
-           callback(res.data)
-         }).catch(function(err){
-           callback(res.data)
-         })
-    }
-
-    factory.deletePoll = function(id, callback){
-       $http.delete(`/polls/${id}`)
-         .then(function(res){
-           callback(res.data)
-         }).catch(function(err){
-           callback({status:false, errors:err})
-         })
-    }
+    //factory.getPolls = function(callback){
+      //$http.get('/polls')
+        //.then(function(res){
+          //callback(res.data)
+        //}).catch(function(err){
+        //})
+    //}
 
     return factory
   }
