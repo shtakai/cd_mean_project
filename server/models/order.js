@@ -9,6 +9,14 @@ const OrderSchema = new Schema({
     type: String,
     enum: ['SELL', 'BUY'],
     required: true,
+    uppercase: true,
+    trim: true,
+  },
+  state: {
+    type: String,
+    enum: ['AVAILABLE', 'PROCESSING', 'CANCELED', 'FINISHED'],
+    required: true,
+    default: 'PROCESSING',
   },
   ticker: {
     type: String,
