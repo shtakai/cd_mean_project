@@ -9,15 +9,9 @@ angular.module('app')
       .when('/', {
         templateUrl: '../../partials/login.html',
       })
-      .when('/polls/:id', {
-        templateUrl: '../../partials/poll.html'
+      .when('/dashboard', {
+        templateUrl: '../../partials/dashboard.html'
       })
-      .when('/polls', {
-        templateUrl: '../../partials/polls.html'
-      })
-     .when('/newPoll', {
-       templateUrl: '../../partials/new_poll.html'
-     })
       .otherwise({
         redirectTo: '/'
       })
