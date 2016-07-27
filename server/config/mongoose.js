@@ -1,4 +1,4 @@
-const dbURL = 'mongodb://localhost/poll_development'
+const dbURL = 'mongodb://localhost/poqemon_ex_production'
 const mongoose = require('mongoose')
 const fs = require('fs')
 const path = require('path')
