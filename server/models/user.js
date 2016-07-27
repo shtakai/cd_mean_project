@@ -8,10 +8,10 @@ const UserSchema = new Schema({
     type: String,
     required: true
   },
-  polls:[
+  orders:[
     {
       type: Schema.Types.ObjectId,
-      ref: 'Poll'
+      ref: 'Order'
     }
 
   ],
