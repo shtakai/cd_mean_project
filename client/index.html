@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>survey poll</title>
+</head>
+<body ng-app="app">
+  <div class="container">
+    <h1>survey poll</h1>
+    <div ng-if="errors">
+      <h3 ng-bind="errors.message" class="alert alert-danger"></h3>
+    </div>
+    <div ng-view></div>
+
+
+  </div>
+
+</body>
+<script src="angular/angular.js"></script>
+<script src="angular-route/angular-route.js"></script>
+<script src="angular-messages/angular-messages.js"></script>
+<script src="lodash/lodash.js"></script>
+<script src="assets/modules/app.js"></script>
+<script src="assets/factories/user.factory.js"></script>
+<script src="assets/controllers/login.controller.js"></script>
+<script src="assets/main.js"></script>
+
+<link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
+</html>

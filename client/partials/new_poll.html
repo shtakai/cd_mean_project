@@ -1,0 +1,33 @@
+<div ng-controller="QAController as C">
+
+  <div ng-init="C.activate()"></div>
+  <div>
+    Welcome {{C.user.name}}
+    <a ng-href="#/polls" class="btn btn-primary">Home</a>
+    <button ng-click='C.logout()' class="btn btn-primary">Logout</button>
+  </div>
+  <div>
+    <h2>New Poll</h2>
+    <div>
+      <div>
+        question:<textarea ng-model="C.poll.question" cols="30" rows="10"></textarea>
+      </div>
+      <div>
+        Option1: <input type="text" ng-model="C.poll.option1">
+      </div>
+      <div>
+        Option2: <input type="text" ng-model="C.poll.option2">
+      </div>
+      <div>
+        Option3: <input type="text" ng-model="C.poll.option3">
+      </div>
+      <div>
+        Option4: <input type="text" ng-model="C.poll.option4">
+      </div>
+      <div>
+        <button ng-click="C.index()" class="btn btn-warning">Cancel</button>
+        <button ng-click="C.createPoll()" class="btn btn-primary">Open Poll</button>
+      </div>
+    </div>
+  </div>
+</div>

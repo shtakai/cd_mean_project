@@ -1,0 +1,24 @@
+{
+  "name": "mean_exam",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Alyson Takai <shtakai@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-route": "^1.5.8",
+    "angular": "^1.5.8",
+    "angular-messages": "^1.5.8",
+    "lodash": "^4.13.1",
+    "bootstrap": "^3.3.6"
+  }
+}
