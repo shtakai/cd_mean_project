@@ -6,11 +6,13 @@ const Order = mongoose.model('Order')
 const User = mongoose.model('User')
 const ObjectId = mongoose.Schema.Types.ObjectId
 
+const OrderHelper = require('./../helpers/order.helper.js')
+
 module.exports = {
   //logout: (req, res) => {
-     //req.session.destroy((err) => {
-     //res.json({status:true, message:'logout'})
-     //})
+  //req.session.destroy((err) => {
+  //res.json({status:true, message:'logout'})
+  //})
   //}
   create: (req, res) => {
     console.log('order#create')
@@ -32,6 +34,13 @@ module.exports = {
       } )
       .then( () =>{
         console.log('success: res')
+        //OrderHelper.getOrders()
+        OrderHelper.getOrders( (data) => {
+          if(data.status){
+            let io = req.app.get('io')
+            io.emit('orderUpdate', data)
+          }
+        } )
         res.json({status:true, order: order})
       } )
       .catch( (err) => {
@@ -39,77 +48,11 @@ module.exports = {
         res.json({status: false, errors:err})
       } )
   }, //end create
-  index: (req, res) =>{
-    const sell = Order.aggregate([
-      {
-        $match: {
-          orderType: 'SELL',
-          traded: false,
-          canceled: false,
-          state: 'AVAILABLE',
-        }
-      },
-      {
-        $group: {
-          _id: '$price',
-          count: {$sum: "$amount"}
-        }
-      },
-      {
-        $project: {
-          _id: 1,
-          count: 1,
-          price: 1,
-        }
-      }
-    ])
+  index: (req, res) => {
+    OrderHelper.getOrders( (data) => {
+      res.json(data)
+    } )
+  }
 
-    const buy = Order.aggregate([
-      {
-        $match: {
-          orderType: 'BUY',
-          traded: false,
-          canceled: false,
-          state: 'AVAILABLE',
-        }
-      },
-      {
-        $group: {
-          _id: '$price',
-          count: {$sum: "$amount"}
-        }
-      },
-      {
-        $project: {
-          _id: 1,
-          count: 1,
-          price: 1,
-        }
-      }
-    ])
 
-    let sellOrders
-    let buyOrders
-    //Order.find({traded: false, canceled: false, orderType: 'SELL', state: 'AVAILABLE'})
-    sell.exec()
-      //.sort('-created_at')
-      .then( (_sellOrders) => {
-        console.log('sell order', _sellOrders)
-        sellOrders = _sellOrders
-        return _sellOrders
-      } )
-      .then( () => {
-        //Order.find({traded:false, canceled: false, orderType: 'BUY' ,state: 'AVAILABLE'})
-        buy.exec()
-          .then( (_buyOrders) => {
-            buyOrders = _buyOrders
-            console.log('finished grabbed orders')
-            res.json({status: true, buyOrders: buyOrders, sellOrders: sellOrders})
-          } )
-      } )
-      .catch( (err) => {
-        console.log('error', err)
-        res.json({status: false, errors: err})
-      } )
-  }, // end index
 }

@@ -1,12 +1,33 @@
-<div ng-dcontroller='DashboardController as DC'>
+<div ng-controller='DashboardController as DC'>
   <div ng-controller='UsersController as UC'>
     <div>
       Weldcome {{UC.user.name}}
-      <button ng-dclidck='UC.logout()' dclass="btn btn-primary">Logout</button>
+
+      <button ng-click='UC.logout()' class="btn btn-primary">Logout</button>
     </div>
-
+  </div>
+  <div ng-init="DC.getOrders()">
+    <div><h1>POQEMON NTD0Y:U5</h1></div>
+    <div class="row">
+      <div class="col-md-4">
+        <h3>SELL ORDERS</h3>
+        <ul class="list-group" id="sellOrders">
+          <li class="list-group-item" ng-repeat="order in DC.orders.sellOrders| orderBy: '-_id'">Price: {{ order._id }} / Amount: {{ order.count }}</li>
+        </ul>
+      </div>
+      <div class="col-md-4">
+        <h3>BUY ORDERS</h3>
+        <ul class="list-group" id="buyOrders">
+          <li class="list-group-item" ng-repeat="order in DC.orders.buyOrders| orderBy: '-_id'">Price: {{ order._id }} / Amount: {{ order.count }}</li>
+        </ul>
+      </div>
+    </div>
   </div>
 
 
   </div>
+</div>
+
+<div class="container">
+  <img src="https://lh4.ggpht.com/-mCmbL2JP9qU/T_L83qrfHaI/AAAAAAAGnBs/-6qw1Mu4wUU/s200/l20435.png" alt="sudo init 6">
 </div>
