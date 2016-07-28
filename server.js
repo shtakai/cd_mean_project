@@ -51,11 +51,15 @@ apiRoutes.use(function(req, res, next) {
 });
 
 app.use('/orders', apiRoutes)
-
-require('./server/config/routes.js')(app)
-
-
-
 const server = app.listen(port, () => {
   console.log('---server---start----8000')
 })
+
+
+
+let io = require('./server/config/sockets.js')(server)
+require('./server/config/routes.js')(app, io)
+
+
+
+
