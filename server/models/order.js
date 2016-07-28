@@ -23,6 +23,7 @@ const OrderSchema = new Schema({
     required: true,
     uppercase: true,
     trim: true,
+    default: 'NTDOY:US'
   },
   amount: {
     type: Number,
