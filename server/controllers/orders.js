@@ -9,11 +9,6 @@ const ObjectId = mongoose.Schema.Types.ObjectId
 const OrderHelper = require('./../helpers/order.helper.js')
 
 module.exports = {
-  //logout: (req, res) => {
-  //req.session.destroy((err) => {
-  //res.json({status:true, message:'logout'})
-  //})
-  //}
   create: (req, res) => {
     console.log('order#create')
     console.log('body', req.body)
