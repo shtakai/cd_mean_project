@@ -22,7 +22,7 @@
     "jquery": "^3.1.0",
     "lodash": "^4.13.1",
     "mongoose": "^4.5.5",
-    "mongoose-session": "0.0.4"
-    "socket.io": "^1.4.8",
+    "mongoose-session": "0.0.4",
+    "socket.io": "^1.4.8"
   }
 }
