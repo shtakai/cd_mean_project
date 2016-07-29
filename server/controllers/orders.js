@@ -29,9 +29,15 @@ module.exports = {
       } )
       .then( () =>{
         console.log('success: res')
+        OrderHelper.execOrder(order, (data) => {
+          console.log('exec data', data)
+        })
+      })
+      .then( () => {
         //OrderHelper.getOrders()
         OrderHelper.getOrders( (data) => {
           if(data.status){
+            console.log(JSON.stringify(data))
             let io = req.app.get('io')
             io.emit('orderUpdate', data)
           }
@@ -48,6 +54,4 @@ module.exports = {
       res.json(data)
     } )
   }
-
-
 }
