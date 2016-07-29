@@ -25,9 +25,25 @@
   </div>
 
 
-  </div>
-</div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <h3>SELL</h3>
+        <input type="text" ng-model="DC.sell.price" placeholder="PRICE">
+        <input type="text" ng-model="DC.sell.amount" placeholder="AMOUNT">
+        <button ng-click="DC.sellOrder()">SELL</button>
+      </div>
+      <div class="col-md-4">
+        <h3>BUY</h3>
+        <input type="text" ng-model="DC.buy.price" placeholder="PRICE">
+        <input type="text" ng-model="DC.buy.amount" placeholder="AMOUNT">
+        <button ng-click="DC.buyOrder()">BUY</button>
+      </div>
 
-<div class="container">
-  <img src="https://lh4.ggpht.com/-mCmbL2JP9qU/T_L83qrfHaI/AAAAAAAGnBs/-6qw1Mu4wUU/s200/l20435.png" alt="sudo init 6">
+    </div>
+  </div>
+
+  <div class="container">
+    <img src="https://lh4.ggpht.com/-mCmbL2JP9qU/T_L83qrfHaI/AAAAAAAGnBs/-6qw1Mu4wUU/s200/l20435.png" alt="sudo init 6">
+  </div>
 </div>
